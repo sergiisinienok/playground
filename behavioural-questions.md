@@ -30,7 +30,7 @@ VS Code as my main text editor nowadays is one great example, Docker is another.
 
 Another example is AWS SDK, written in JS and open-sourced. I can learn out of its code doing my regular daily troubleshooting.
 
-# Tell me about yourself
+# Tell me about yourself?
 
 Bachelor in Computer Science, Master in Electronics and Hardware for Biomedical Engineering.
 
@@ -52,3 +52,18 @@ Actively developing JS and Technical Leadership mentorship programs. Successfull
 
 Its my pleasure to raise the bar in terms of wide variety of deliverry processes and guidelines. Launched the Seniority Grades and Software Development Engineering guides in 2019.
 
+# Do you enjoy leadership?
+
+Yes I do, to begin with. My personal reason here is people.
+
+Internally I feel, people are as important as technology, to not say even more important. So, I decided to challenge myself and learn this new science.
+
+By doing this, I believe I'm amplifying by magnitude the value we deliver together by making my best in making each person around me a bit more effective. (Groving the team and individual example - DM team).
+
+Sometimes it feels like we can make impossible things happentogether. New grades example + DM editing example.
+
+I was happy to join the team of 6 engineers and obtain the leadership role there. Then I was extremely lucky to have an opportunity to grow this team up to 22 great engineers.
+
+Then I turned into the challenging route of growing Team Leads, both for my team and, later on, for other project's teams. Currently I'm leading a team of 12 mature profesinals. Each of them, in turn, having own teams of 3 to 20 engineers each. 320 people in total. This is a great story of CHANGE.
+
+To wrap this up, I believe the leadership role is measured by ones positive impact on ther people's lives, and I highly appreciate this opportunity.
