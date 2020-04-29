@@ -15,3 +15,18 @@ From what I understand, Amazon employs the most forward thinking and intelligent
 3. Pushing the limits as a lifestyle
 
 Based on what I know, Amazon is a company that continually raises the bar of innovation and breaks into new markets. I'd be very excited being a part of this culture of always looking forward towards the best service to its customers. I want to commit to this kind of culture.
+
+# Do you like to remain technical and why?
+
+I think being technical is awesome because I can deliver the value fast and at the same time having near to immediate feedback loop from your customers.
+
+Another great thing is I can use data driven approach to act in an ambiguous environment. If I  think I've invented something useful to people, I can validate my idea by presenting it to the real customers within days, sometimes even hours.
+
+Same is fare for fixes and optimizations of existing things. Technology gives me the fastest feedback loop ever.
+
+Craftsmanship is another important piece of my tech world. I like great tools and the fact you can invent new and better ones or shrpeen existing for your needs and by yourself.
+
+VS Code as my main text editor nowadays is one great example, Docker is another. By combining those two together, I can spin up my own uique environment in a matter of fminutes and thhen store its definition to git to make it awailable everuwhere.
+
+Another example is AWS SDK, written in JS and open-sourced. I can learn out of its code doing my regular daily troubleshooting.
+
