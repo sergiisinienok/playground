@@ -30,3 +30,25 @@ VS Code as my main text editor nowadays is one great example, Docker is another.
 
 Another example is AWS SDK, written in JS and open-sourced. I can learn out of its code doing my regular daily troubleshooting.
 
+# Tell me about yourself
+
+Bachelor in Computer Science, Master in Electronics and Hardware for Biomedical Engineering.
+
+12 years of experience in IT, 9 clients as an enterprise-grade projects.
+
+My first full-time job was for Ukrainian government. Help building the hardware+sofrware product for military purposes.
+
+10 years of experience in commercial Software Development outsourcing. Took different roles, including Software Development Engineer, QA, DevOps, BA, Project Coordinator, Team Lead and Architect.
+
+Passed 5 Microsoft certificates as part of my Software Development Engineer education track to challengee myself and help the company to achieve Microsoft gold Partner status.
+
+Enjoy building teams, developing people and optimizing the value delivery pipeline for my customers.
+
+Especially proud of my interviewing experience. I did 292 interviews and hired 52 great people to out of those.
+
+Like to share my knowledge. I did 5 conference talks and presentations in 2019, 3 in 2020.
+
+Actively developing JS and Technical Leadership mentorship programs. Successfully graduated 4 JS devs and 8 Tech Leds in 2019.
+
+Its my pleasure to raise the bar in terms of wide variety of deliverry processes and guidelines. Launched the Seniority Grades and Software Development Engineering guides in 2019.
+
