@@ -18,7 +18,7 @@ Based on what I know, Amazon is a company that continually raises the bar of inn
 
 # Do you like to remain technical and why?
 
-I think being technical is awesome because I can deliver the value fast and at the same time having near to immediate feedback loop from your customers.
+I think being technical is awesome because I can deliver the value fast and at the same time having near to immediate feedback loop from my customers.
 
 Another great thing is I can use data driven approach to act in an ambiguous environment. If I  think I've invented something useful to people, I can validate my idea by presenting it to the real customers within days, sometimes even hours.
 
