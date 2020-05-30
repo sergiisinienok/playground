@@ -1,0 +1,22 @@
+{
+  "name": "coursera-algorithms-1",
+  "version": "1.0.0",
+  "description": "All the code for Coursera's Algorithms course Part 1",
+  "main": "dynamic-connectivity.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dazmodel/playground.git"
+  },
+  "author": "Sergii Sinienok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dazmodel/playground/issues"
+  },
+  "homepage": "https://github.com/dazmodel/playground#readme",
+  "dependencies": {
+    "prompt": "1.0.0"
+  }
+}

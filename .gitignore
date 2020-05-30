@@ -1,0 +1,90 @@
+#############
+## OS detritus
+#############
+
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Mac crap
+.DS_Store
+
+##############
+# Editor config
+#
+.brackets.json
+.idea/
+.vscode/
+
+##############
+# Logging
+#
+/logs/
+*.log
+npm-debug.log*
+migration-logs/migrations-log-*
+.nyc_output/
+
+#
+##############
+# JS client app
+#
+.tmp
+.npm
+bower_components/
+jspm_packages/
+node_modules/
+test.tap
+build/coverage/
+build/coverage-tmp/
+build/jsdocs/
+build/postman/
+dist/
+!tools/build
+reports/
+
+##############
+# Serverless temp files
+#
+.serverless
+lib/
+dm_db_devlab/
+dm_db_dev/
+
+##############
+# Docs build file
+#
+docs.json
+
+##############
+# Webpack deploy folder
+#
+.webpack
+
+##############
+# Command file that resolvs the issue with inch.js on Windows
+#
+find.cmd
+
+##############
+# Local environment variables
+#
+.env
+
+## Docker db volume
+.db/
+.dumps/
+jenkins-logs
+
+coverage
+
+# Clinicjs
+.clinic
+dump.rdb

@@ -1,6 +1,6 @@
 
-// Write an algorithm which reverses the letters in words, like: 
-// Input: I love Taxify 
+// Write an algorithm which reverses the letters in words, like:
+// Input: I love Taxify
 // Output:I evol yfixaT
 // Input is character array (not string) and output should also be character array. Function needs to work in-place, modify the input array itself. Don't use any extra arrays, string objects or language provider libraries. Use of temporary variables is allowed.
 // Example in Java:
@@ -44,7 +44,7 @@ const reverseWordsInCharArray = (inputCharArray) => {
 };
 
 const findStartOfTheWord = (inputCharArray, currentIndex) => {
-    let startOfTheWord = 0; 
+    let startOfTheWord = 0;
 
     for (let i = currentIndex; i < inputCharArray.length; i++) {
         const currentChar = inputCharArray[i];
