@@ -84,9 +84,35 @@ const runWeightedQuickUnionWithPathCompressionUF = () => {
     console.log('-----------------------------------------------');
 };
 
+const binarySearchSource = [6, 13, 14, 25, 33, 43, 51, 53, 64, 72, 84, 93, 95, 96, 97];
+
+const binarySearch = (source, element) => {
+    let lo = 0;
+    let hi = source.length - 1;
+
+    while (lo <= hi) {
+        const mid = lo + (hi - lo) / 2;
+
+        if (element < source[mid])
+            hi = mid - 1;
+        else if (element > source[mid])
+            lo = mid + 1;
+        else
+            return mid;
+    }
+
+    return -1;
+};
+
+const binarySearchResult  =  binarySearch(binarySearchSource, 33);
+console.log(`Binary search result index is ${binarySearchResult}`);
+
 runUF();
 runQuickUnionUF();
 runWeightedQuickUnionUF();
 runWeightedQuickUnionWithPathCompressionUF();
 
 console.log('Done!');
+
+const arr = new Array(10);
+console.log(arr);
