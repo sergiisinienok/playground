@@ -47,22 +47,40 @@ const selectionSort = (input) => {
     const inputLength = input.length;
 
     for (let i = 0; i < inputLength; i++) {
-        let min = i;
+        let minIndex = i;
 
         for (let j = i + 1; j < inputLength; j++) {
-            if (input[j] < input[min]) {
-                min = j;
+            if (input[j] < input[minIndex]) {
+                minIndex = j;
             }
         }
 
-        exchangeArrayElements(input, i, min);
+        exchangeArrayElements(input, i, minIndex);
     }
 
     return input;
 };
 
+// Cost model
+// | algorithm         | Passes                                 | Data Movements                        |
+// | Insertion Sort    |   N^2 (N for partially sorted arrray)  |  N^2 (N for partially sorted arrray)  |
+const insertionSort = (input) => {
+    const inputLength = input.length;
+
+    for (let i = 0; i < inputLength; i++) {
+        for (let j = i; j > 0; j--) {
+            if (input[j] < input[j - 1]) {
+                exchangeArrayElements(input, j, j - 1);
+            } else break;
+        }
+    }
+
+    return input;
+}
+
 module.exports = {
     bubbleSort,
     bubbleSortOpt,
     selectionSort,
+    insertionSort,
 };

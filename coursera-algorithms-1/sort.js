@@ -22,3 +22,7 @@ console.log('-----------------------------------');
 console.log('Selection Sort:');
 console.log(sortImplementations.selectionSort(cloneInput(input)));
 console.log('-----------------------------------');
+
+console.log('Insertion Sort:');
+console.log(sortImplementations.insertionSort(cloneInput(input)));
+console.log('-----------------------------------');
