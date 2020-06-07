@@ -30,3 +30,11 @@ console.log('-----------------------------------');
 console.log('Shell Sort:');
 console.log(sortImplementations.shellSort(cloneInput(input)));
 console.log('-----------------------------------');
+
+console.log('Merge Sort:');
+console.log(sortImplementations.mergeSort(cloneInput(input)));
+console.log('-----------------------------------');
+
+console.log('Bottom Up Merge Sort:');
+console.log(sortImplementations.bottomUpMergeSort(cloneInput(input)));
+console.log('-----------------------------------');

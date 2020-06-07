@@ -4,9 +4,30 @@ const exchangeArrayElements = (input, i, j) => {
     input[j] = tmp;
 };
 
+const mergeArrays = (input, auxiliary, lo, mid, hi) => {
+    for (let k = lo; k <= hi; k++) {
+        auxiliary[k] = input[k];
+    }
+
+    let i = lo;
+    let j = mid + 1;
+
+    for (let k = lo; k <= hi; k++) {
+        if (i > mid) {
+            input[k] = auxiliary[j++];
+        } else if (j > hi) {
+            input[k] = auxiliary[i++];
+        } else if (auxiliary[j] < auxiliary[i]) {
+            input[k] = auxiliary[j++];
+        } else {
+            input[k] = auxiliary[i++];
+        }
+    }
+};
+
 // Cost model
-// | algorithm      | Passes | Data Movements |
-// | Bubble Sort    |   N^2  |  N^2           |
+// | algorithm      | Passes | Data Movements | Memory  |
+// | Bubble Sort    |   N^2  |  N^2           |    N    |
 const bubbleSort = (input) => {
     const inputLength = input.length;
     for (let i = 0; i < inputLength; i++) {
@@ -21,8 +42,8 @@ const bubbleSort = (input) => {
 };
 
 // Cost model
-// | algorithm          | Passes | Data Movements            |
-// | Bubble Sort Opt    |   N^2  |  N^2 (N in best case)     |
+// | algorithm          | Passes | Data Movements            | Memory  |
+// | Bubble Sort Opt    |   N^2  |  N^2 (N in best case)     |    N    |
 const bubbleSortOpt = (input) => {
     const inputLength = input.length;
     let wasSwapped;
@@ -41,8 +62,8 @@ const bubbleSortOpt = (input) => {
 };
 
 // Cost model
-// | algorithm         | Passes | Data Movements  |
-// | Selection Sort    |   N^2  |  N              |
+// | algorithm         | Passes | Data Movements  | Memory  |
+// | Selection Sort    |   N^2  |  N              |    N    |
 const selectionSort = (input) => {
     const inputLength = input.length;
 
@@ -62,8 +83,8 @@ const selectionSort = (input) => {
 };
 
 // Cost model
-// | algorithm         | Passes                                 | Data Movements                        |
-// | Insertion Sort    |   N^2 (N for partially sorted arrray)  |  N^2 (N for partially sorted arrray)  |
+// | algorithm         | Passes                                 | Data Movements                        | Memory  |
+// | Insertion Sort    |   N^2 (N for partially sorted arrray)  |  N^2 (N for partially sorted arrray)  |    N    |
 const insertionSort = (input) => {
     const inputLength = input.length;
 
@@ -79,8 +100,8 @@ const insertionSort = (input) => {
 }
 
 // Cost model (Accurate model has not yet been discovered)
-// | algorithm         | Passes   | Data Movements  |
-// | Shell Sort        |   N^3/2  |  N??            |
+// | algorithm         | Passes   | Data Movements  | Memory  |
+// | Shell Sort        |   N^3/2  |  N??            |    N    |
 const shellSort = (input) => {
     const inputLength = input.length;
 
@@ -106,10 +127,55 @@ const shellSort = (input) => {
     return input;
 };
 
+// Cost model (Classic recursive implementation)
+// This sorting methid is not an in-place sorting
+// because it requires an additional auxiliary array in order to sort items
+// | algorithm         | Passes    | Data Movements  | Memory  |
+// | Merge Sort        |   N lg N  |  N lg N         |    2N   |
+const mergeSort = (input) => {
+    const sort = (input, auxiliary, lo, hi) => {
+        if (hi <= lo) return;
+
+        const mid = parseInt(lo + (hi - lo) / 2);
+
+        sort(input, auxiliary, lo, mid);
+        sort(input, auxiliary, mid + 1, hi);
+        mergeArrays(input, auxiliary, lo, mid, hi);
+    }
+
+    const auxiliary = new Array(input.length);
+    sort(input, auxiliary, 0, input.length - 1);
+
+    return input;
+};
+
+// Cost model (Bottpm Up implementation NON RECURSIVE)
+// This sorting methid is not an in-place sorting
+// because it requires an additional auxiliary array in order to sort items
+// | algorithm         | Passes    | Data Movements  | Memory  |
+// | Merge Sort        |   N lg N  |  N lg N         |    2N   |
+const bottomUpMergeSort = (input) => {
+    const inputLength = input.length;
+
+    const auxiliary = new Array(inputLength);
+
+    for (let sz = 1; sz < inputLength; sz = 2 * sz) {
+        for (let lo = 0; lo < inputLength - sz; lo += 2 * sz) {
+            const mid = lo + sz - 1;
+            const hi = Math.min(lo + sz + sz - 1, inputLength - 1);
+            mergeArrays(input, auxiliary, lo, mid, hi);
+        }
+    }
+
+    return input;
+};
+
 module.exports = {
     bubbleSort,
     bubbleSortOpt,
     selectionSort,
     insertionSort,
     shellSort,
+    mergeSort,
+    bottomUpMergeSort,
 };
