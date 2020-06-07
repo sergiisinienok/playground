@@ -26,3 +26,7 @@ console.log('-----------------------------------');
 console.log('Insertion Sort:');
 console.log(sortImplementations.insertionSort(cloneInput(input)));
 console.log('-----------------------------------');
+
+console.log('Shell Sort:');
+console.log(sortImplementations.shellSort(cloneInput(input)));
+console.log('-----------------------------------');

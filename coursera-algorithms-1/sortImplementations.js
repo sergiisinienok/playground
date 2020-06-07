@@ -78,9 +78,38 @@ const insertionSort = (input) => {
     return input;
 }
 
+// Cost model (Accurate model has not yet been discovered)
+// | algorithm         | Passes   | Data Movements  |
+// | Shell Sort        |   N^3/2  |  N??            |
+const shellSort = (input) => {
+    const inputLength = input.length;
+
+    let hFactor = 1;
+
+    // Compute H Factor using 3x + 1 increment sequence
+    while (hFactor < inputLength/3) {
+        hFactor = 3 * hFactor + 1; // 1, 4, 13, 40, 121, 364, ...
+    }
+
+    // H Sort the array using computed hFactor
+    while (hFactor >= 1) {
+        // h-sort the array.
+        for (let i = hFactor; i < inputLength; i++) {
+            for (let j = i; (j >= hFactor) && (input[j] < input[j - hFactor]); j -= hFactor) {
+                exchangeArrayElements(input, j, j - hFactor);
+            }
+        }
+
+        hFactor = parseInt(hFactor / 3);
+    }
+
+    return input;
+};
+
 module.exports = {
     bubbleSort,
     bubbleSortOpt,
     selectionSort,
     insertionSort,
+    shellSort,
 };
