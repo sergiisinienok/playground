@@ -26,8 +26,8 @@ const mergeArrays = (input, auxiliary, lo, mid, hi) => {
 };
 
 // Cost model
-// | algorithm      | Passes | Data Movements | Memory  |
-// | Bubble Sort    |   N^2  |  N^2           |    N    |
+// | algorithm      | Passes | Data Movements | Memory  | Stable?    |
+// | Bubble Sort    |   N^2  |  N^2           |    N    |   N        |
 const bubbleSort = (input) => {
     const inputLength = input.length;
     for (let i = 0; i < inputLength; i++) {
@@ -42,8 +42,8 @@ const bubbleSort = (input) => {
 };
 
 // Cost model
-// | algorithm          | Passes | Data Movements            | Memory  |
-// | Bubble Sort Opt    |   N^2  |  N^2 (N in best case)     |    N    |
+// | algorithm          | Passes | Data Movements            | Memory  | Stable?    |
+// | Bubble Sort Opt    |   N^2  |  N^2 (N in best case)     |    N    |    N       |
 const bubbleSortOpt = (input) => {
     const inputLength = input.length;
     let wasSwapped;
@@ -62,8 +62,8 @@ const bubbleSortOpt = (input) => {
 };
 
 // Cost model
-// | algorithm         | Passes | Data Movements  | Memory  |
-// | Selection Sort    |   N^2  |  N              |    N    |
+// | algorithm         | Passes | Data Movements  | Memory  | Stable?    |
+// | Selection Sort    |   N^2  |  N              |    N    |   N        |
 const selectionSort = (input) => {
     const inputLength = input.length;
 
@@ -83,8 +83,8 @@ const selectionSort = (input) => {
 };
 
 // Cost model
-// | algorithm         | Passes                                 | Data Movements                        | Memory  |
-// | Insertion Sort    |   N^2 (N for partially sorted arrray)  |  N^2 (N for partially sorted arrray)  |    N    |
+// | algorithm         | Passes                                 | Data Movements                        | Memory  | Stable?    |
+// | Insertion Sort    |   N^2 (N for partially sorted arrray)  |  N^2 (N for partially sorted arrray)  |    N    |     Y      |
 const insertionSort = (input) => {
     const inputLength = input.length;
 
@@ -100,8 +100,8 @@ const insertionSort = (input) => {
 }
 
 // Cost model (Accurate model has not yet been discovered)
-// | algorithm         | Passes   | Data Movements  | Memory  |
-// | Shell Sort        |   N^3/2  |  N??            |    N    |
+// | algorithm         | Passes   | Data Movements  | Memory  | Stable?    |
+// | Shell Sort        |   N^3/2  |  N??            |    N    |     N      |
 const shellSort = (input) => {
     const inputLength = input.length;
 
@@ -130,8 +130,8 @@ const shellSort = (input) => {
 // Cost model (Classic recursive implementation)
 // This sorting methid is not an in-place sorting
 // because it requires an additional auxiliary array in order to sort items
-// | algorithm         | Passes    | Data Movements  | Memory  |
-// | Merge Sort        |   N lg N  |  N lg N         |    2N   |
+// | algorithm         | Passes    | Data Movements  | Memory  | Stable?    |
+// | Merge Sort        |   N lg N  |  N lg N         |    2N   |    Y       |
 const mergeSort = (input) => {
     const sort = (input, auxiliary, lo, hi) => {
         if (hi <= lo) return;
@@ -141,7 +141,7 @@ const mergeSort = (input) => {
         sort(input, auxiliary, lo, mid);
         sort(input, auxiliary, mid + 1, hi);
         mergeArrays(input, auxiliary, lo, mid, hi);
-    }
+    };
 
     const auxiliary = new Array(input.length);
     sort(input, auxiliary, 0, input.length - 1);
@@ -152,8 +152,8 @@ const mergeSort = (input) => {
 // Cost model (Bottpm Up implementation NON RECURSIVE)
 // This sorting methid is not an in-place sorting
 // because it requires an additional auxiliary array in order to sort items
-// | algorithm         | Passes    | Data Movements  | Memory  |
-// | Merge Sort        |   N lg N  |  N lg N         |    2N   |
+// | algorithm         | Passes    | Data Movements  | Memory  | Stable?    |
+// | Merge Sort        |   N lg N  |  N lg N         |    2N   |    Y       |
 const bottomUpMergeSort = (input) => {
     const inputLength = input.length;
 
@@ -170,6 +170,83 @@ const bottomUpMergeSort = (input) => {
     return input;
 };
 
+// Cost model (classic implementation, goes N^2 when has duplicate keys)
+// | algorithm         | Passes    | Data Movements  | Memory  | Stable?    |
+// | Quick Sort        |   N lg N  |  N lg N         |   N     |    N       |
+const quickSort = (input) => {
+    const partitionArray = (input, lo, hi) => {
+        let i = lo;
+        let j = hi + 1;
+
+        while (true) {
+            while (input[++i] < input[lo]) {
+                if (i == hi) break;
+            }
+
+            while (input[lo] < input[--j]) {
+                if (j == lo) break;
+            }
+
+            if (i >= j) break;
+
+            exchangeArrayElements(input, i, j);
+        }
+
+        exchangeArrayElements(input, lo, j);
+
+        return j;
+    };
+
+    const sort = (input, lo, hi) => {
+        if (hi <= lo) return;
+
+        const j = partitionArray(input, lo, hi);
+
+        sort(input, lo, j - 1);
+        sort(input, j + 1, hi);
+    };
+
+    // Need to make sure the input array is randomly shuffled for the best performance of sorting
+    const lo = 0;
+    const hi = input.length - 1;
+    sort(input, lo, hi);
+
+    return input;
+};
+
+// Cost model (classic implementation might go N^2 when has duplicate keys)
+// 3 Way Quick Sort improves quicksort in presence of duplicate keys to be linear
+// | algorithm               | Passes    | Data Movements  | Memory  | Stable?    |
+// | 3 Way Quick Sort        |   N lg N  |  N lg N         |   N     |    N       |
+const threeWayQuickSort = (input) => {
+    const sort = (input, lo, hi) => {
+        if (hi <= lo) return;
+
+        let lt = lo;
+        let gt = hi;
+        let i = lo;
+        const partitionKey = input[lo];
+
+        while (i <= gt) {
+            if (input[i] < partitionKey) {
+                exchangeArrayElements(input, lt++, i++);
+            } else if (input[i] > partitionKey) {
+                exchangeArrayElements(input, i, gt--);
+            } else i++;
+        }
+
+        sort(input, lo, lt - 1);
+        sort(input, gt + 1, hi);
+    };
+
+    // Need to make sure the input array is randomly shuffled for the best performance of sorting
+    const lo = 0;
+    const hi = input.length - 1;
+    sort(input, lo, hi);
+
+    return input;
+};
+
 module.exports = {
     bubbleSort,
     bubbleSortOpt,
@@ -178,4 +255,6 @@ module.exports = {
     shellSort,
     mergeSort,
     bottomUpMergeSort,
+    quickSort,
+    threeWayQuickSort,
 };

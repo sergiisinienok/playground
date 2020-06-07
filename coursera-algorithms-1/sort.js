@@ -38,3 +38,11 @@ console.log('-----------------------------------');
 console.log('Bottom Up Merge Sort:');
 console.log(sortImplementations.bottomUpMergeSort(cloneInput(input)));
 console.log('-----------------------------------');
+
+console.log('Quick Sort:');
+console.log(sortImplementations.quickSort(cloneInput(input)));
+console.log('-----------------------------------');
+
+console.log('Three Way Quick Sort:');
+console.log(sortImplementations.threeWayQuickSort(cloneInput(input)));
+console.log('-----------------------------------');
