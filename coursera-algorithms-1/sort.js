@@ -46,3 +46,7 @@ console.log('-----------------------------------');
 console.log('Three Way Quick Sort:');
 console.log(sortImplementations.threeWayQuickSort(cloneInput(input)));
 console.log('-----------------------------------');
+
+console.log('Heap Sort:');
+console.log(sortImplementations.heapSort(cloneInput(input)));
+console.log('-----------------------------------');

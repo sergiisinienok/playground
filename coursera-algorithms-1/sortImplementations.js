@@ -214,7 +214,7 @@ const quickSort = (input) => {
     return input;
 };
 
-// Cost model (classic implementation might go N^2 when has duplicate keys)
+// Cost model
 // 3 Way Quick Sort improves quicksort in presence of duplicate keys to be linear
 // | algorithm               | Passes    | Data Movements  | Memory  | Stable?    |
 // | 3 Way Quick Sort        |   N lg N  |  N lg N         |   N     |    N       |
@@ -247,6 +247,50 @@ const threeWayQuickSort = (input) => {
     return input;
 };
 
+// Cost model
+// N lg N is guaranteed, in-place sorting. This combination makes it unique (in-place with N lg N guarantee)
+// | algorithm        | Passes    | Data Movements  | Memory  | Stable?    |
+// | Heap Sort        |   N lg N  |  N lg N         |   N     |    N       |
+const heapSort = (input) => {
+    const sink = (input, nodeIndex, heapSize) => {
+        while (2 * nodeIndex <= heapSize) {
+            let j = 2 * nodeIndex;
+            if ((j < heapSize) && (input[j] < input[j + 1])) j++;
+            if (!(input[nodeIndex] < input[j])) break;
+            exchangeArrayElements(input, nodeIndex, j);
+            nodeIndex = j;
+        }
+    };
+
+    const constructMaxHeapBottomUp = (input) => {
+        const heapSize = input.length - 1;
+        for (let k = parseInt(heapSize / 2); k >= 1; k--) {
+            sink(input, k, heapSize);
+        }
+    };
+
+    const sort = (input) => {
+        let heapSize = input.length - 1;
+
+        while (heapSize > 1) {
+            exchangeArrayElements(input, 1, heapSize);
+            sink(input, 1, --heapSize);
+        }
+    };
+
+    // We'll assume the indexes are 1 based, instead of 0 based, to simplify the index math and add clarity
+    // by adding one more element at [0] as undefined
+    input.unshift(undefined);
+
+    constructMaxHeapBottomUp(input);
+    sort(input);
+
+    // Delete unnecessary undefined at [0]
+    input.shift();
+
+    return input;
+};
+
 module.exports = {
     bubbleSort,
     bubbleSortOpt,
@@ -257,4 +301,5 @@ module.exports = {
     bottomUpMergeSort,
     quickSort,
     threeWayQuickSort,
+    heapSort
 };
